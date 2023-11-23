@@ -1,21 +1,21 @@
 import * as tools from './tools';
-import { PageWelcome } from './pages/PageWelcome';
-import { PageInfo } from './pages/PageInfo';
-import { PageAbout } from './pages/PageAbout';
+import { PageHome } from './pages/PageHome';
+import { PagePreise } from './pages/PagePreise';
+import { PageBestellen } from './pages/PageBestellen';
 import { Page404 } from './pages/Page404';
 
-const pageNames = ['Welcome', 'Info', 'About'];
+const pageNames = ['Home', 'Preise', 'Bestellen'];
 
 const currentPageIdCode = getSmartCurrentPageId();
 
 export const getCurrentPage = () => {
 	switch (currentPageIdCode) {
-		case 'welcome':
-			return PageWelcome();
-		case 'info':
-			return PageInfo();
-		case 'about':
-			return PageAbout();
+		case 'home':
+			return PageHome();
+		case 'preise':
+			return PagePreise();
+		case 'bestellen':
+			return PageBestellen();
 		default:
 			return Page404();
 	}
