@@ -22,35 +22,40 @@ export const getCurrentPage = () => {
 		default:
 			return Page404();
 	}
-}
+};
 
 const getPageIdCode = (pageName: string) => {
 	pageName = tools.cleanCharactersToAscii(pageName);
 	return pageName.toLowerCase();
-}
+};
 
 export const getMenu = () => {
 	const getMenuClass = (pageName: string) => {
 		const pageIdCode = tools.cleanCharactersToAscii(pageName.toLowerCase());
 		if (pageIdCode === currentPageIdCode) {
-			return ` class="active"`
+			return ` class="active"`;
 		} else {
 			return '';
 		}
-	}
+	};
 
-	return /*html*/`
-	<nav class="menu">
-		<ul>
-			${pageNames.map(pageName => `<li><a href="${getPageIdCode(pageName)}"${getMenuClass(pageName)}>${pageName}</a></li>`).join('')}
-		</ul>
-	</nav>
+	return /*html*/ `
+			${pageNames
+				.map(
+					(pageName) =>
+						`<li class="menu-item"><a href="${getPageIdCode(pageName)}"${getMenuClass(
+							pageName
+						)}>${pageName}</a></li>`
+				)
+				.join('')}
 `;
-}
-
+};
 
 function getSmartCurrentPageId() {
 	let currentPageIdCode = tools.getCurrentPageIdCode();
-	currentPageIdCode = currentPageIdCode === '' ? tools.cleanCharactersToAscii(pageNames[0].toLowerCase()) : currentPageIdCode;
+	currentPageIdCode =
+		currentPageIdCode === ''
+			? tools.cleanCharactersToAscii(pageNames[0].toLowerCase())
+			: currentPageIdCode;
 	return currentPageIdCode;
 }

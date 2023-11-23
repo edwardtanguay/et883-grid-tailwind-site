@@ -5,6 +5,10 @@
 body {
 	// animation: fadein .1s ease-in;
 	background: linear-gradient(90deg, #000000 0%, #535151 100%);
+
+	li.menu-item {
+		color: aquamarine;
+	}
 }
 
 @keyframes fadein {
