@@ -3,12 +3,14 @@ import { getMenu } from "../Router";
 export const Header = () => {
 	return /*html*/ `
 	 <div x-data="{ open: false }" class="bg-[#212529] shadow-md">
-			<div class="mx-auto flex justify-end lg:justify-between items-center p-4">
-				<div class="text-blue-500 text-xl items-center hidden lg:flex">
+			<div class="mx-auto flex justify-between items-center p-4">
+				<div class="flex gab-3">
 					<img class="h-[3rem] mr-6" src="images/android-chrome-512x512.png"/>
-					<ul class="lg:flex space-x-4">
-						${getMenu()}
-					</ul>
+					<div class="text-blue-500 text-xl items-center hidden lg:flex">
+						<ul class="lg:flex space-x-4">
+							${getMenu()}
+						</ul>
+					</div>
 				</div>
 				<button @click="open = !open" class="lg:hidden text-blue-500 justify-right">
 					<svg
@@ -40,5 +42,5 @@ export const Header = () => {
 			</div>
 		</div>
 	
-	`
-}
+	`;
+};
