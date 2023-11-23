@@ -29,3 +29,15 @@ body {
 		opacity: 1;
 	}
 }
+
+
+.page {
+	div {
+		background-color: red;
+		padding: 2rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: .5rem;
+	}
+}
