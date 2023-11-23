@@ -3,8 +3,9 @@ import { PageHome } from './pages/PageHome';
 import { PagePreise } from './pages/PagePreise';
 import { PageBestellen } from './pages/PageBestellen';
 import { Page404 } from './pages/Page404';
+import { PageKontakt } from './pages/PageKontakt';
 
-const pageNames = ['Home', 'Preise', 'Bestellen'];
+const pageNames = ['Home', 'Preise', 'Bestellen', 'Kontakt'];
 
 const currentPageIdCode = getSmartCurrentPageId();
 
@@ -16,6 +17,8 @@ export const getCurrentPage = () => {
 			return PagePreise();
 		case 'bestellen':
 			return PageBestellen();
+		case 'kontakt':
+			return PageKontakt();
 		default:
 			return Page404();
 	}
