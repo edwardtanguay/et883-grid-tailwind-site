@@ -1,12 +1,15 @@
-import './styles/main.scss';
-import { getMenu, getCurrentPage } from './Router';
+import "./styles/main.scss";
+import { getMenu, getCurrentPage } from "./Router";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = /* html */ `
-
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = /* html */ `
 	 <div x-data="{ open: false }" class="bg-[#212529] shadow-md">
-			<div class="container mx-auto flex justify-between items-center p-4">
-				<div class="text-blue-500 font-bold text-xl">Your Logo</div>
-				<button @click="open = !open" class="lg:hidden text-blue-500">
+			<div class="mx-auto flex justify-end lg:justify-between items-center p-4">
+				<div class="text-blue-500 text-xl hidden lg:flex">
+					<ul class="lg:flex space-x-4">
+						${getMenu()}
+					</ul>
+				</div>
+				<button @click="open = !open" class="lg:hidden text-blue-500 justify-right">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="w-6 h-6"
@@ -23,27 +26,21 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = /* html */ `
 					</svg>
 				</button>
 				<div class="hidden lg:flex">
-					<ul class="lg:flex space-x-4">
-						${getMenu()}
-					</ul>
+					<form class="flex gap-3 items-center" role="search">
+						<input class="h-[40px]" type="search" placeholder="Such deine Pizza" aria-label="Search">
+						<button class="success mt-2 h-[40px]" type="submit">Search</button>
+					</form>
 				</div>
 			</div>
 			<div x-show="open" class="lg:hidden">
-				<ul class="bg-white p-4">
-					<li><a class="text-blue-500" href="#">Home</a></li>
-					<li><a class="text-blue-500" href="#">About</a></li>
-					<li><a class="text-blue-500" href="#">Services</a></li>
-					<li><a class="text-blue-500" href="#">Contact</a></li>
+				<ul class="bg-[#333] p-4">
+					${getMenu()}
 				</ul>
 			</div>
 		</div>
 
 
-<header class="text-white">
-	<h1>Info Site</h1>
-	${getMenu()}
-</header>
-<main class="text-white">
+<main class="text-white p-6">
 	${getCurrentPage()}
 </main>
 `;
